@@ -1,0 +1,12 @@
+double my_pow(double base, unsigned int exp) {
+    if (exp == 0) {
+        return 1.0; // любое число в степени 0 равно 1
+    } else if (exp % 2 == 0) {
+        // если степень четная
+        double half_pow = my_pow(base, exp / 2);
+        return half_pow * half_pow;
+    } else {
+        // если степень нечетная
+        return base * my_pow(base, exp - 1);
+    }
+}
